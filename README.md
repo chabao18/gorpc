@@ -1,1 +1,3 @@
 # gorpc
+
+todo: day2
