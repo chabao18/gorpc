@@ -30,11 +30,12 @@ func main() {
 	time.Sleep(time.Second)
 	// send request & receive response
 	var wg sync.WaitGroup
-	for i := 0; i < 5; i++ {
+	LOOP := 1
+	for i := 0; i < LOOP; i++ {
 		wg.Add(1)
 		go func(i int) {
 			defer wg.Done()
-			args := fmt.Sprintf("geerpc req %d", i)
+			args := fmt.Sprintf("gorpc req %d", i)
 			var reply string
 			if err := client.Call("Foo.Sum", args, &reply); err != nil {
 				log.Fatal("call Foo.Sum error:", err)
